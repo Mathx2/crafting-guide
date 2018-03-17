@@ -1,0 +1,15 @@
+dependencies:
+    pre:
+        - gem install sass --version "= 3.4"
+        - sudo -H pip install s3cmd
+        - npm install -g browserify
+        - npm install -g grunt-cli
+deployment:
+    staging:
+        branch: staging
+        commands:
+            - grunt upload:staging
+    production:
+        branch: production
+        commands:
+            - grunt upload:prod

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function die {
+    echo $*
+    exit 1
+}
+
+VERSION_TYPE=""
+while [[ "$VERSION_TYPE" != "major" && "$VERSION_TYPE" != "minor" && "$VERSION_TYPE" != "patch" ]]; do
+    read -p "Major, minor, patch? " VERSION_TYPE
+done
+
+npm version "$VERSION_TYPE" || die "Invalid version type: $VERSION_TYPE"
+npm publish || die "Could not publish to NPM"
+git push || die "Could not push updated version to GitHub"

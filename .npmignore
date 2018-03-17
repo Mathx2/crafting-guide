@@ -1,0 +1,10 @@
+*.log
+.DS_Store
+aws.config
+design
+marketing
+node_modules
+scripts
+src
+static
+
